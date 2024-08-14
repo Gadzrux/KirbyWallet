@@ -22,7 +22,7 @@
 
    ```bash
          git clone https://github.com/Gadzrux/KirbyWallet.git
-         cd web3-wallet 
+         cd KirbyWallet 
    ```
 2. **Install dependecies:**
 
