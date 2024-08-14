@@ -4,7 +4,7 @@
  I used DaisyUI for the components
 
 # LiveLinks
-[KirbyWallet](google.com)
+[KirbyWallet](https://kirby-wallet.vercel.app)
 
 # ScreenShots
 ![Wallet Image](./src/assets/pic1.png)
