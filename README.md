@@ -1,5 +1,5 @@
 # HD-Wallet Generator
-  ![kirby](./src/assets/kirby.png)
+  <img src="./src/assets/kirby.png" alt="Kirby" width="100"/>
  This project is a React Application in TypeScript to generate HD wallets for SOL & ETH, with their pvt and public keys.
  I used DaisyUI for the components
 
