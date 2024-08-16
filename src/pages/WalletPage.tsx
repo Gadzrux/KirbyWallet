@@ -78,12 +78,14 @@ function WalletPage(): JSX.Element {
                 <div className="collapse bg-base-200">
                   <input type="checkbox" />
                   <div className="collapse-title text-xl font-medium">Account {index + 1}</div>
+                  {/* Show amount of SOL */}
                   <div className="collapse-content">
                     <p className=' bg-green-500 rounded-3xl p-3 text-white'>Public Key:</p>
                     <div className='overflow-x-auto w-72 border border-white m-2 p-2 text-white font-bold rounded-md'>{solKeys[index].publicKey}</div>
                     <p className='bg-red-500 rounded-3xl p-3 text-white'>Private Key:</p>
                     <div className='overflow-x-auto w-72 border border-white m-2 p-2 text-white font-bold rounded-md'>{solKeys[index].privateKey}</div>
                   </div>
+                  {/* Implement Send SOL button */}
                 </div>
               </div>
             )
@@ -104,12 +106,14 @@ function WalletPage(): JSX.Element {
                 <div className="m-2 collapse bg-base-200">
                   <input type="checkbox" />
                   <div className="collapse-title text-xl font-medium">Account {index + 1}</div>
+                  {/* Show amount of ETH */}
                   <div className="collapse-content">
                     <p className=' bg-green-500 rounded-3xl p-3 text-white'>Public Key:</p>
                     <div className='overflow-x-auto w-72 border border-white m-2 p-2 text-white font-bold rounded-md'>{ethKeys[index].publicKey}</div>
                     <p className='bg-red-500 rounded-3xl p-3 text-white'>Private Key:</p>
                     <div className='overflow-x-auto w-72 border border-white m-2 p-2 text-white font-bold rounded-md'>{ethKeys[index].privateKey}</div>
                   </div>
+                  {/* Implement Send ETH button */}
                 </div>
               </div>
             )

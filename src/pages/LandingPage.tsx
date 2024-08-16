@@ -9,8 +9,10 @@ if (typeof window !== 'undefined') {
 
 function LandingPage():JSX.Element {
   const [isModalOpen, setisModalOpen] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>("");
   const [showAlert, setShowAlert] = useState<boolean>(false);
   const [mnemonics, setMnemonics] = useState<string[]>([]);
+  const [showPhraseInput, setShowPhraseInput] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const toWallet = () => navigate('/wallet')
@@ -35,9 +37,16 @@ function LandingPage():JSX.Element {
     const wordArr = str.split(" ");
     setMnemonics(wordArr);
   };
-
+  const saveImported = () => {
+    localStorage.setItem("mnemonics",inputValue);
+    const wordArr = inputValue.split(" ");
+    setMnemonics(wordArr);
+  }
+  const openModal = () =>{
+    setShowPhraseInput(showPhraseInput => !showPhraseInput)
+  }
   return (
-    <div>
+    <div className='min-h-screen h-auto bg-slate-900 p-20'>
       {showAlert && (
         <div role="alert" className="alert alert-success mt-4 flex items-center">
           <svg
@@ -54,7 +63,6 @@ function LandingPage():JSX.Element {
           <span className="ml-2 text-white font-bold">Text Copied, Save it Somewhere SAFE!!!</span>
         </div>
       )}
-      <div id='Screen-Div' className='h-screen bg-slate-900 p-40'>
       <div id='Kirby-Text' className='flex justify-center items-center'>
         <div className="avatar">
           <div className="mask mask-squircle w-24">
@@ -64,7 +72,7 @@ function LandingPage():JSX.Element {
             <h1 className ='ml-4 text-white text-4xl font-sans'>Welcome to Kirby Wallet</h1>
       </div>
       <div className='flex flex-col justify-center items-center'>
-          <button onClick={gen}className=" m-10 btn btn-outline btn-secondary">Generate Mnemonics</button>
+          <button onClick={gen} className=" m-4 btn btn-outline btn-secondary">Generate Mnemonics</button>
           {isModalOpen &&
           <div className="border-red-500 border-2 rounded-lg p-5 mb-10 "key={Math.random()}>
           {mnemonics.map((word, index) => 
@@ -76,11 +84,26 @@ function LandingPage():JSX.Element {
               </div>
             ) : null
           )}
-        <button onClick={copyText} className="ml-16 btn btn-primary">Copy</button>
+          <div id="div to center button" className='flex justify-center'>
+            <button onClick={copyText} className="btn btn-primary">Copy</button>
+          </div>
         </div>}
-          <button onClick={toWallet} className="btn btn-outline btn-info">See your wallets</button>
+        <button onClick={openModal} className=" m-4 btn btn-outline btn-secondary">Import Mnemonic</button>
+        { showPhraseInput &&
+          <div className='border-red-500 border-2 rounded-lg p-5 mb-10 '>
+         <input 
+         type="text" 
+         placeholder="Enter Phrase" 
+         className=" textarea-ghost m-2 input w-full max-w-xs"
+         value = {inputValue}
+         onChange={(e) => setInputValue(e.target.value)} />
+         <div id="div to center button" className='flex justify-center'>
+            <button onClick={saveImported} className="btn btn-primary">Submit</button>
+          </div>
+          </div>
+        }
+          <button onClick={toWallet} className="m-4 btn btn-outline btn-info">Go to your wallets</button>
       </div>
-    </div>
     </div>
   );
 }
