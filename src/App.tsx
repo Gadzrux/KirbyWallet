@@ -2,8 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import LandingPage from "./pages/LandingPage"
 import WalletPage from "./pages/WalletPage"
 function App() : JSX.Element {
-  // const userExists:boolean = (localStorage.getItem("mnemonics")!= null);
-  const userExists:boolean = false
+  const userExists:boolean = (localStorage.getItem("mnemonics")!= null);
   return (
    <BrowserRouter>
     <Routes>

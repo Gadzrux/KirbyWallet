@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Buffer } from 'buffer';
 import { Keypair} from "@solana/web3.js";
-import { HDNodeWallet } from "ethers";
+import { HDNodeWallet, encodeBase58  } from "ethers";
 import { mnemonicToSeed } from 'bip39';
+import { derivePath } from 'ed25519-hd-key';
+import nacl from 'tweetnacl';
 
 function WalletPage(): JSX.Element {
 
@@ -35,11 +37,16 @@ function WalletPage(): JSX.Element {
 
   useEffect(() => {
     if(seed) {
-      const solSeed = seed.slice(0, 32);
-      const keypair = Keypair.fromSeed(solSeed);
+      // const solSeed = seed.slice(0, 32);
+      const path = `m/44'/501'/${solAccounts}'/0'`;
+      const hexSeed = Buffer.from(seed).toString('hex');
+      const derivedSeed = derivePath(path, hexSeed).key;
+      const secret = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
+      const keypair = Keypair.fromSecretKey(secret);
+      console.log(typeof(keypair.publicKey));
       setSolKeys([...solKeys, {
-      privateKey: (Buffer.from(keypair.secretKey) as Buffer).toString('hex'),
-      publicKey: (keypair.publicKey as unknown as Buffer).toString('hex'),
+      privateKey: encodeBase58(keypair.secretKey),
+      publicKey: keypair.publicKey.toString(),
     }]);
     }
   }, [solAccounts]);
