@@ -142,7 +142,7 @@ function WalletPage(): JSX.Element {
                     className="m-2 input input-bordered w-full max-w-xs"
                     value={sendSOLAddress}
                     onChange={(e) => setSendSOLAddress(e.target.value)} />
-                  <button onClick={() => sendSOL(index)} className="btn btn-active">SEND SOL</button>
+                  <button onClick={() => sendSOL()} className="btn btn-active">SEND SOL</button>
                 </div>
               </div>
             )
@@ -189,7 +189,7 @@ function WalletPage(): JSX.Element {
                     className="m-2 input input-bordered w-full max-w-xs"
                     value={sendETHAddress}
                     onChange={(e) => setSendETHAddress(e.target.value)} />
-                  <button onClick={() => sendETH(index)} className="btn btn-active">SEND ETH</button>
+                  <button onClick={() => sendETH()} className="btn btn-active">SEND ETH</button>
                 </div>
               </div>
             )
