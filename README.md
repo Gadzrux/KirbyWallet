@@ -9,12 +9,16 @@
 # ScreenShots
 ![Wallet Image](./src/assets/pic1.png)
 ![Wallet Image](./src/assets/pic2.png)
+![Wallet Image](./src/assets/pic3.png)
 ## What does the application do?
 
 - Generate random mnemonic phrases with copy functionality.
+- Import a wallet from mnemonic phrase
 - Generate Solana wallets from a seed using a mnemonic phrase.
+- Airdrop yourself SOL from devnet, send SOL to addresses in the devnet
 - Generate Ethereum wallets from a seed using a mnemonic phrase.
-- Display private and public keys for the generated wallets.
+- Airdrop yourself ETH from Holešky, send ETH to addresses in the Holešky
+- Display private keys, public keys and balance for the generated wallets.
 
 ## Installation
 
