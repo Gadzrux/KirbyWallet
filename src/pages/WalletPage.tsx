@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Buffer } from 'buffer';
-import { Keypair, Connection, LAMPORTS_PER_SOL, Transaction, SystemProgram } from "@solana/web3.js";
+import { Keypair} from "@solana/web3.js";
 import { HDNodeWallet, encodeBase58, computeAddress } from "ethers";
 import { mnemonicToSeed } from 'bip39';
 import { derivePath } from 'ed25519-hd-key';
@@ -87,11 +87,11 @@ function WalletPage(): JSX.Element {
     setethAccounts(ethAccounts + 1);
   };
 
-  const sendETH = async (index: number) => {
+  const sendETH = async () => {
 
   };
 
-  const sendSOL = async (index: number) => {
+  const sendSOL = async () => {
   };
 
   return (
