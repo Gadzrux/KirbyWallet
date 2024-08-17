@@ -140,8 +140,7 @@ function WalletPage(): JSX.Element {
   };
 
 
-  const sendSOL = async (index: number) => {
-    if (solKeys[index]) {
+  const sendSOL = async (index: number) => { 
         const decodedPrivateKey = bs58.decode(solKeys[index].privateKey);
         const from = Keypair.fromSecretKey(decodedPrivateKey);
         const to = new PublicKey(solKeys[index].sendSOLAddress);
@@ -164,7 +163,6 @@ function WalletPage(): JSX.Element {
         if(signature) {
           alert("Transaction Successfull, signature: " + signature +"\n Reload the Website and generate Wallets again");
         }
-    }
   };
 
   const sendETH = async (index: number) => {
