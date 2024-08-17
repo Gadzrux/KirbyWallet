@@ -204,6 +204,10 @@ function WalletPage(): JSX.Element {
           <div className=' break-all text-green-300'>{"Hex: " + (seed as Buffer)?.toString('hex')}</div>
         </div>
       </div>
+      <div className='flex items-center justify-evenly m-2 p-2'>
+        <a className='text-xl font-bold text-blue-400' href='https://faucet.solana.com/'>AirDrop SOL</a>
+        <a className='text-xl font-bold text-blue-400' href='https://cloud.google.com/application/web3/faucet/ethereum/holesky'>AirDrop ETH</a>
+      </div>
       <div className='mt-10 flex justify-evenly'>
         <div id="SOL-WALLET" className='m-4 p-5 border-2 border-white rounded-3xl'>
           <div className='text-white font-semibold font-sans m-10 text-4xl'>SOL WALLET</div>
